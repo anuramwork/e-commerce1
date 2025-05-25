@@ -1,0 +1,90 @@
+/* Loginpage.css */
+
+/* Full-screen background and font */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+}
+
+/* Center the login card */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Card styling */
+.login-card {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 420px;
+    box-sizing: border-box;
+}
+
+/* Title */
+.login-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+    font-size: 2rem;
+}
+
+/* Login form */
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Input fields */
+.login-input {
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border 0.2s ease-in-out;
+}
+
+.login-input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Submit button */
+.login-button {
+    padding: 0.75rem 1rem;
+    background-color: #007bff;
+    border: none;
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #0056b3;
+}
+
+/* Register link */
+.register-redirect {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.register-redirect a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.register-redirect a:hover {
+    text-decoration: underline;
+}
