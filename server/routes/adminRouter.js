@@ -15,7 +15,7 @@ const storage=multer.diskStorage({
 const uploads=multer({storage})
 
 
-const { viewUser, deleteUser, addProduct, viewProduct, deleteProduct, viewproductbyid, updateProductbyId } = require('../controllers/adminControl');
+const { viewUser, deleteUser, addProduct, viewProduct, deleteProduct, viewproductbyid, updateProductbyId ,viewOrderbyadmin, updateStatus} = require('../controllers/adminControl');
 
 const adminRouter = express.Router();
 
@@ -27,6 +27,9 @@ adminRouter.get("/viewproducts",viewProduct)
 adminRouter.delete("/deleteproduct/:productId",deleteProduct)
 adminRouter.get("/viewProductById",viewproductbyid)
 adminRouter.put("/updateproduct/:id",uploads.single('Image'),updateProductbyId)
+adminRouter.get('/adminvieworders',viewOrderbyadmin)
+adminRouter.patch("/updatestatus",updateStatus)
+
 
 
 

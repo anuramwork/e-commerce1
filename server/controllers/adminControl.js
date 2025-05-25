@@ -1,7 +1,7 @@
 const express = require('express');
 const User = require('../models/userModel');
 const Product = require('../models/productModel')
-
+const Order = require('../models/orderModel')
 
 // controllers for User table
 
@@ -132,6 +132,37 @@ const updateProductbyId = async (req, res) => {
   }
 };
 
+//controller for order model
+
+const viewOrderbyadmin=async(req,res)=>{
+    try{
+         const userId=req.headers.id
+         const orders=await Order.find().populate({
+          path:"cartId",
+          populate:{
+             path:"product.productId"
+          },
+         })
+         console.log(orders)
+         res.json(orders)
+    }catch(err){
+       console.log(err)
+    }
+ }
+
+ const updateStatus=async(req,res)=>{
+    try{
+        
+        const {id,status}=req.body
+        const order=await Order.findById(id)
+        order.status=status
+        order.save()
+        res.json("Order status updated successfully")
+    }catch(err){
+        console.log(err)
+    }
+}
 
 
-module.exports = {viewUser,deleteUser , addProduct, viewProduct, deleteProduct, viewproductbyid, updateProductbyId}
+
+module.exports = {viewUser,deleteUser , addProduct, viewProduct, deleteProduct, viewproductbyid, updateProductbyId, viewOrderbyadmin , updateStatus}

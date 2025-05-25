@@ -11,6 +11,7 @@ import AdminViewProducts from './components/adminComponents/adminViewProducts'
 import Admineditproduct from './components/adminComponents/adminEditProduct'
 import Cartpage from './components/userComponents/cartPage'
 import Orderpage from './components/userComponents/orderPage'
+import ViewOrdersAdmin from './components/adminComponents/adminViewOrder'
 
 
 
@@ -29,7 +30,7 @@ function App() {
         <Route path="/addproduct" element={<Adminaddproducts/>}/>
         <Route path="/adminviewproducts" element={<AdminViewProducts/>}/>
         <Route path="/admineditproduct/:id" element={<Admineditproduct/>}/>
-
+        <Route path="/adminvieworder" element={<ViewOrdersAdmin/>}/>
 
 
       </Routes>
