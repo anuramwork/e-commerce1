@@ -14,7 +14,7 @@ export default function AdminAddProducts() {
     productDescription: "",
     productQuantity: "",
   });
-
+ 
   // State to store selected image file
   const [Image, setImage] = useState(null);
 
