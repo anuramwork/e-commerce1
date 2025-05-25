@@ -132,6 +132,7 @@ export default function Cartpage() {
                 name="payment"
                 type="radio"
                 value="COD"
+                id="cod"
                 onChange={(e) => setPayment(e.target.value)}
                 required
               />
@@ -141,6 +142,7 @@ export default function Cartpage() {
                 name="payment"
                 type="radio"
                 value="Online Payment"
+                id="online-payment"
                 onChange={(e) => setPayment(e.target.value)}
               />
             </div>
