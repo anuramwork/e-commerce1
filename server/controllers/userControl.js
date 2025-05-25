@@ -2,6 +2,7 @@ const User = require('../models/userModel')
 const jwt = require("jsonwebtoken")
 const Product = require('../models/productModel')
 const Cart = require('../models/cartModel')
+const Order = require('../models/orderModel')
 //Register API
 const register = async (req, res)=>{
   try{
@@ -99,8 +100,48 @@ const fetchCartById=async(req,res)=>{
    }
 }
 
+// Order controllers
+
+const createOrder=async(req,res)=>{
+   try{
+     const userId=req.headers.userid
+     console.log(req.body)
+     const {cartId,totalAmount,payment,address}=req.body
+     const orders=await Order({
+      userId,
+      cartId,
+      totalAmount,
+      payment,
+      address,
+      status:"Order Placed"
+     })
+     await orders.save()
+     const cartItem=await Cart.findOne({_id:cartId})
+     cartItem.status="Ordered"
+     cartItem.save()
+     res.json({message:"Order placed Successfully",status:200})
+   }catch(err){
+      console.log(err)
+   }
+}
+
+const viewOrder=async(req,res)=>{
+   try{
+        const userId=req.headers.id
+        const orders=await Order.find({userId}).populate({
+         path:"cartId",
+         populate:{
+            path:"product.productId"
+         },
+        })
+        console.log(orders)
+        res.json(orders)
+   }catch(err){
+      console.log(err)
+   }
+}
 
 
 
 
-module.exports = {register, login, viewproducts, addCart , fetchCartById}
+module.exports = {register, login, viewproducts, addCart , fetchCartById , createOrder , viewOrder}

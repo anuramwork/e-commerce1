@@ -42,6 +42,8 @@ export default function Cartpage() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    
+
     AXIOS.post(
       "http://localhost:3000/api/user/addorder",
       {
